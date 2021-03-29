@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     //Jak zmienia się zawartość zmiennej State, SwiftUI recompute body widoku. Private oznacza, że jest to zmienna prywatna danej klasy/struct.
-    @State private var alertIsVisible: Bool = false
-    @State private var sliderValue: Double = 50.0
-    @State private var game: Game = Game()
+    @State private var alertIsVisible = false
+    @State private var sliderValue = 50.0
+    @State private var game = Game()
     
     var body: some View {
         VStack {
-            Text("🎯🎯🎯\nPUT THE BULLSEYE AS CLOSE AS YOU CAN TO")
+            Text("🎯🎯🎯\nPut the bullseye as close as you can to".uppercased())
                 .bold()
                 .kerning(2)
                 .multilineTextAlignment(.center)
@@ -28,19 +28,26 @@ struct ContentView: View {
             HStack {
                 Text("1")
                     .bold()
-                Slider(value: self.$sliderValue, in: 1.0...100.0)
+                Slider(value: $sliderValue, in: 1.0...100.0)
                 Text("100")
                     .bold()
             }
+                .padding()
             Button(action: {
                 print("Hello, SwiftUI!")
-                self.alertIsVisible = true
+                alertIsVisible = true
             }) {
-                Text("Hit me")
+                Text("Hit me".uppercased())
+                    .bold()
+                    .font(.title3)
             }
-            .alert(isPresented: $alertIsVisible, content: {
-                var roundedValue: Int = Int(self.sliderValue.rounded())
-                return Alert(title: Text("Hello there!"), message: Text("The slider value is \(roundedValue).\n" + "You scored \(self.game.points(sliderValue: roundedValue)) points this round."), dismissButton: .default(Text("Awesome!")))
+                .padding(20)
+                .background(Color.blue)
+                .foregroundColor(Color.white)
+                .cornerRadius(21)
+                .alert(isPresented: $alertIsVisible, content: {
+                    let roundedValue = Int(sliderValue.rounded())
+                    return Alert(title: Text("Hello there!"), message: Text("The slider value is \(roundedValue).\n" + "You scored \(game.points(sliderValue: roundedValue)) points this round."), dismissButton: .default(Text("Awesome!")))
             })
         }
     }
