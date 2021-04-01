@@ -61,7 +61,7 @@ struct HitMeButton: View {
         Button(action: {
             print("Hello, SwiftUI!")
             alertIsVisible = true
-        }) {
+        }) { 
             Text("Hit me".uppercased())
                 .bold()
                 .font(.title3)
@@ -75,6 +75,10 @@ struct HitMeButton: View {
         )
         .foregroundColor(Color.white)
         .cornerRadius(21)
+        .overlay(
+            RoundedRectangle(cornerRadius: 21)
+                .strokeBorder(Color.white, lineWidth: 2)
+        )
         .alert(isPresented: $alertIsVisible, content: {
             let roundedValue = Int(sliderValue.rounded())
             return Alert(title: Text("Hello there!"), message: Text("The slider value is \(roundedValue).\n" + "You scored \(game.points(sliderValue: roundedValue)) points this round."), dismissButton: .default(Text("Awesome!")))

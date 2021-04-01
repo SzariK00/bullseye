@@ -48,7 +48,7 @@ struct TextViews_Previews: PreviewProvider {
         VStack {
             InstructionText(text: "Instructions")
             BigNumberText(text: "999")
-            SliderLabelTextOne(text: "1")
+            SliderLabelText(text: "1")
         }
     }
 }
