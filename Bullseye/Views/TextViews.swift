@@ -65,7 +65,6 @@ struct TextViews_Previews: PreviewProvider {
             BigNumberText(text: "999")
             SliderLabelText(text: "1")
             LabelText(text: "Score")
-            RoundRectTextView(text: "999")
         }
         LabelText(text: "Score")
             .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
