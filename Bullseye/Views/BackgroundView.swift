@@ -65,6 +65,9 @@ struct BottomView: View {
 }
 
 struct RingView: View {
+    
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         ZStack {
             Color("BackgroudColor")
@@ -72,10 +75,11 @@ struct RingView: View {
             ForEach(1..<6) { ring in
                 //.frame pobiera CGFloat, nie Ints czy Double
                 let size = CGFloat(ring * 100)
+                let opacity = colorScheme == .dark ? 0.1 : 0.3
                 Circle()
                     .stroke(lineWidth: 20)
                     .fill(
-                        RadialGradient(gradient: Gradient(colors: [Color("RingsColor").opacity(0.3 * 0.8), Color("RingsColor").opacity(0)]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: 100, endRadius: 300)
+                        RadialGradient(gradient: Gradient(colors: [Color("RingsColor").opacity(opacity), Color("RingsColor").opacity(0)]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: 100, endRadius: 300)
                     )
                     .frame(width: size, height: size)
             }
@@ -87,6 +91,6 @@ struct RingView: View {
 struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
         BackgroundView(game: .constant(Game()))
-            .preferredColorScheme(.light)
+            .preferredColorScheme(.dark)
     }
 }
