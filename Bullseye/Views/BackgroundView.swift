@@ -9,10 +9,11 @@ import SwiftUI
 
 struct BackgroundView: View {
     @Binding var game: Game
+    @Binding var sliderValue: Double
     
     var body: some View {
         VStack {
-            TopView(game: $game)
+            TopView(game: $game, sliderValue: $sliderValue)
             Spacer()
             BottomView(game: $game)
         }
@@ -25,12 +26,13 @@ struct BackgroundView: View {
 
 struct TopView: View {
     @Binding var game: Game
+    @Binding var sliderValue: Double
     
     var body: some View {
         HStack {
             Button(action: {
                 game.restart()
-                
+                sliderValue = 50
             }) {
                 RoundedImageViewStroked(systemName: "arrow.counterclockwise")
             }
@@ -47,7 +49,7 @@ struct NumberView: View {
     var body: some View {
         VStack(spacing: 5) {
             LabelText(text: title)
-            RoundRectTextView (text: text)
+            RoundRectTextView(text: text)
         }
     }
 }
@@ -90,7 +92,7 @@ struct RingView: View {
 
 struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundView(game: .constant(Game()))
-            .preferredColorScheme(.dark)
+        BackgroundView(game: .constant(Game()), sliderValue: .constant(50.0))
+            .preferredColorScheme(.light)
     }
 }

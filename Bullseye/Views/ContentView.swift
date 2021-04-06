@@ -15,7 +15,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            BackgroundView(game: $game)
+            BackgroundView(game: $game, sliderValue: $sliderValue)
             SliderView(sliderValue: $sliderValue)
             VStack {
                 InstructionsView(game: $game)
@@ -33,6 +33,7 @@ struct InstructionsView: View {
             InstructionText(text: "🎯🎯🎯\nPut the bullseye as close as you can to")
                 .padding(.leading, 30.0)
                 .padding(.trailing, 30.0)
+                .padding(.bottom, 10.0)
             BigNumberText(text: String(game.target))
         }
         .padding(.bottom, 100)

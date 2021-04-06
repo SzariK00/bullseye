@@ -16,6 +16,7 @@
 		756F7932260FB85600B38E8D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756F7931260FB85600B38E8D /* ContentView.swift */; };
 		756F7934260FB85600B38E8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 756F7933260FB85600B38E8D /* Assets.xcassets */; };
 		756F7937260FB85700B38E8D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 756F7936260FB85700B38E8D /* Preview Assets.xcassets */; };
+		75A53046261D0B1E00D84FDA /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A53045261D0B1E00D84FDA /* PointsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		756F7933260FB85600B38E8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		756F7936260FB85700B38E8D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		756F7938260FB85700B38E8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75A53045261D0B1E00D84FDA /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				756A750E2613C464001503AB /* TextViews.swift */,
 				756A75162616660D001503AB /* RoundViews.swift */,
 				756A751C2617AB03001503AB /* BackgroundView.swift */,
+				75A53045261D0B1E00D84FDA /* PointsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				756F7932260FB85600B38E8D /* ContentView.swift in Sources */,
 				756A750F2613C464001503AB /* TextViews.swift in Sources */,
 				756A74FC261115A1001503AB /* Game.swift in Sources */,
+				75A53046261D0B1E00D84FDA /* PointsView.swift in Sources */,
 				756F7930260FB85600B38E8D /* BullseyeApp.swift in Sources */,
 				756A75172616660D001503AB /* RoundViews.swift in Sources */,
 			);
