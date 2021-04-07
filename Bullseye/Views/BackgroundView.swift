@@ -13,7 +13,7 @@ struct BackgroundView: View {
     
     var body: some View {
         VStack {
-            TopView(game: $game, sliderValue: $sliderValue)
+            TopView(game: $game)
             Spacer()
             BottomView(game: $game)
         }
@@ -26,13 +26,11 @@ struct BackgroundView: View {
 
 struct TopView: View {
     @Binding var game: Game
-    @Binding var sliderValue: Double
     
     var body: some View {
         HStack {
             Button(action: {
                 game.restart()
-                sliderValue = 50
             }) {
                 RoundedImageViewStroked(systemName: "arrow.counterclockwise")
             }

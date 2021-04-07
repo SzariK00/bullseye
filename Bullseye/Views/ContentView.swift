@@ -16,10 +16,16 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             BackgroundView(game: $game, sliderValue: $sliderValue)
-            SliderView(sliderValue: $sliderValue)
+            if !alertIsVisible {
+                SliderView(sliderValue: $sliderValue)
+            }
             VStack {
-                InstructionsView(game: $game)
-                HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                InstructionsView(game: $game, alertIsVisible: $alertIsVisible)
+                if alertIsVisible {
+                    PointsView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                } else {
+                    HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                }
             }
         }
     }
@@ -27,6 +33,7 @@ struct ContentView: View {
 
 struct InstructionsView: View {
     @Binding var game: Game
+    @Binding var alertIsVisible: Bool
     
     var body: some View {
         VStack {
@@ -36,7 +43,7 @@ struct InstructionsView: View {
                 .padding(.bottom, 10.0)
             BigNumberText(text: String(game.target))
         }
-        .padding(.bottom, 100)
+        .padding(.bottom, alertIsVisible ? 0 : 100)
     }
 }
 
@@ -79,13 +86,6 @@ struct HitMeButton: View {
             RoundedRectangle(cornerRadius: 21)
                 .strokeBorder(Color.white, lineWidth: 2)
         )
-        .alert(isPresented: $alertIsVisible, content: {
-            let roundedValue = Int(sliderValue.rounded())
-            let points = game.points(sliderValue: roundedValue)
-            return Alert(title: Text("Hello there!"), message: Text("The slider value is \(roundedValue).\n" + "You scored \(points) points this round."), dismissButton: .default(Text("Awesome!")) {
-                game.startNewRound(points: points)
-            })
-        })
     }
 }
 
