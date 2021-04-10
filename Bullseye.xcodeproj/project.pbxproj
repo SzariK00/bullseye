@@ -18,6 +18,7 @@
 		756F7932260FB85600B38E8D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756F7931260FB85600B38E8D /* ContentView.swift */; };
 		756F7934260FB85600B38E8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 756F7933260FB85600B38E8D /* Assets.xcassets */; };
 		756F7937260FB85700B38E8D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 756F7936260FB85700B38E8D /* Preview Assets.xcassets */; };
+		758171BE2621077000B0C7AB /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758171BD2621077000B0C7AB /* LeaderboardView.swift */; };
 		75A53046261D0B1E00D84FDA /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A53045261D0B1E00D84FDA /* PointsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		756F7933260FB85600B38E8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		756F7936260FB85700B38E8D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		756F7938260FB85700B38E8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		758171BD2621077000B0C7AB /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		75A53045261D0B1E00D84FDA /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 				756A751C2617AB03001503AB /* BackgroundView.swift */,
 				75A53045261D0B1E00D84FDA /* PointsView.swift */,
 				7503B7F1261FA464000194B7 /* Shapes.swift */,
+				758171BD2621077000B0C7AB /* LeaderboardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			files = (
 				756A751D2617AB03001503AB /* BackgroundView.swift in Sources */,
 				756F7932260FB85600B38E8D /* ContentView.swift in Sources */,
+				758171BE2621077000B0C7AB /* LeaderboardView.swift in Sources */,
 				7503B7F2261FA464000194B7 /* Shapes.swift in Sources */,
 				756A750F2613C464001503AB /* TextViews.swift in Sources */,
 				7503B7EC261F9E76000194B7 /* Constants.swift in Sources */,
