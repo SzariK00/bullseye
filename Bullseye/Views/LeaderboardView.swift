@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct LeaderboardView: View {
+    @Binding var leaderboardIsShowing: Bool
+    
     var body: some View {
-        RowView(index: 1, score: 10, date: Date())
+        ZStack {
+            Color("BackgroundColor")
+                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            VStack(spacing: 10) {
+                HeaderView(leaderboardIsShowing: $leaderboardIsShowing)
+                LabelView()
+                RowView(index: 1, score: 10, date: Date())
+            }
+        }
     }
 }
 
@@ -30,7 +40,7 @@ struct RowView: View {
                 .frame(maxWidth: Constants.Leaderboard.leaderboardDateColWidth)
             
         }
-        .background(
+        .background( 
             RoundedRectangle(cornerRadius: .infinity)
                 .strokeBorder(Color("LeaderboardRowColor"),
                               lineWidth: Constants.General.strokeWidth
@@ -44,14 +54,66 @@ struct RowView: View {
     }
 }
 
+struct HeaderView: View {
+    @Binding var leaderboardIsShowing: Bool
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
+    var body: some View {
+        ZStack {
+            HStack {
+                if verticalSizeClass == .regular && horizontalSizeClass == .compact {
+                    BigBoldText(text:  "Leaderboard")
+                        .padding(.leading)
+                    Spacer()
+                } else {
+                    BigBoldText(text:  "Leaderboard")
+                }
+            }
+            HStack {
+                Spacer()
+                Button(action: {
+                    leaderboardIsShowing = false
+                }) {
+                    RoundedImageViewFilled(systemName: "xmark")
+                        .padding(.trailing)
+                }
+            }
+        }
+    }
+}
+
+struct LabelView: View {
+    var body: some View {
+        HStack {
+            Spacer()
+                .frame(width: Constants.General.rounderViewLength)
+            Spacer()
+            LabelText(text: "Score")
+                .frame(width: Constants.Leaderboard.leaderboardScoreColWidth)
+            Spacer()
+            LabelText(text: "Date")
+                .frame(width: Constants.Leaderboard.leaderboardDateColWidth)
+            
+        }
+        //Lewa strona
+        .padding(.leading)
+        //Prawa strona
+        .padding(.trailing)
+        .frame(maxWidth: Constants.Leaderboard.leaderboardMaxRowWidth)
+    }
+}
+
 struct LeaderboardView_Previews: PreviewProvider {
+    static private var leaderboardIsShowing = Binding.constant(false)
+    
     static var previews: some View {
-        LeaderboardView()
-        LeaderboardView()
+        LeaderboardView(leaderboardIsShowing: leaderboardIsShowing)
+        LeaderboardView(leaderboardIsShowing: leaderboardIsShowing)
             .previewLayout(.fixed(width: 568, height: 320))
-        LeaderboardView()
+        LeaderboardView(leaderboardIsShowing: leaderboardIsShowing)
             .preferredColorScheme(.dark)
-        LeaderboardView()
+        LeaderboardView(leaderboardIsShowing: leaderboardIsShowing)
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 568, height: 320))    }
 }

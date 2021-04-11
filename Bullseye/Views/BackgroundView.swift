@@ -26,6 +26,8 @@ struct BackgroundView: View {
 
 struct TopView: View {
     @Binding var game: Game
+    //Source of truth ponieważ posiada prefix @State
+    @State private var leaderboardIsShowing = false
     
     var body: some View {
         HStack {
@@ -35,7 +37,13 @@ struct TopView: View {
                 RoundedImageViewStroked(systemName: "arrow.counterclockwise")
             }
             Spacer()
-            RoundedImageViewFilled(systemName: "list.dash")
+            Button(action: {
+                leaderboardIsShowing = true
+            }) {
+                RoundedImageViewFilled(systemName: "list.dash")
+            }.sheet(isPresented: $leaderboardIsShowing, onDismiss: {}, content: {
+                LeaderboardView(leaderboardIsShowing: $leaderboardIsShowing)
+            })
         }
     }
 } 
@@ -70,7 +78,7 @@ struct RingView: View {
     
     var body: some View {
         ZStack {
-            Color("BackgroudColor")
+            Color("BackgroundColor")
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             ForEach(1..<6) { ring in
                 //.frame pobiera CGFloat, nie Ints czy Double
