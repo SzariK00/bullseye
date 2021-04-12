@@ -17,8 +17,19 @@ struct Game {
     var target = Int.random(in: 1..<100)
     var score = 0
     var round = 1
+    
     //Musimy wpisać, co ma zawierać lista, ponieważ poniżej tworzymy pustą listę.
     var leaderboardEntries: [LeaderboardEntry] = []
+    
+    init(loadTestData: Bool = false) {
+        if loadTestData {
+            leaderboardEntries.append(LeaderboardEntry(score: 100, date: Date()))
+            leaderboardEntries.append(LeaderboardEntry(score: 80, date: Date()))
+            leaderboardEntries.append(LeaderboardEntry(score: 200, date: Date()))
+            leaderboardEntries.append(LeaderboardEntry(score: 50, date: Date()))
+            leaderboardEntries.append(LeaderboardEntry(score: 20, date: Date()))
+        }
+    }
     
     // Jak jedna linia, to nie musi być rerutn. Wiele linii, musi być return.
     func points(sliderValue: Int) -> Int {
